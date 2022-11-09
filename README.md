@@ -1,4 +1,4 @@
-# Music-Visualizer-Reboot 
+# Music-Visualizer
 
   - Terminal-based Music Visualizer that displays the power spectrum of a *.wav file
   - Music visualizer using SDL2 for audio play and FFTW for Fourier Transformation
