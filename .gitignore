@@ -1,0 +1,13 @@
+# Executables
+*.exe
+*.out
+*.app
+
+# Libraries
+*.a
+*.dll
+*.so
+
+# qtCreator-specific
+*.user
+

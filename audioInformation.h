@@ -1,7 +1,7 @@
 #ifndef AUDIOINFORMATION_H
 #define AUDIOINFORMATION_H
 
-#include<SDL2/SDL.h>
+#include <SDL2/SDL.h>
 #include <fftw3.h>
 #include <stdlib.h>
 
@@ -20,14 +20,12 @@ double Get32bitAudioSample(Uint8* bytebuffer, SDL_AudioFormat format);
 struct AudioData* GetAudioData(Visualizer_Pkg_ptr);
 SDL_AudioSpec* GetSDL_AudioSpec(Visualizer_Pkg_ptr);
 struct FFTW_Results* GetFFTW_Results(Visualizer_Pkg_ptr);
-struct FFTWop* GetFFTWop(Visualizer_Pkg_ptr);
-
 
 struct AudioData
 {
-	Uint8* currentPos;
+	Uint8 *currentPos;
 	Uint32 currentLength;
-	Uint8* wavStart;
+	Uint8 *wavStart;
   	Uint32 wavLength;
 };
 
@@ -37,37 +35,31 @@ struct FFTWop
 	fftw_complex *out;
 	fftw_plan p;
 	int index;
-
 };
 
 struct FFTW_Results
 {
-	double* peakfreq;
-	double* peakpower;
-	double** peakmagMatrix;
-	char*** outputMatrix;
+	double **peakmagMatrix;
+	char ***outputMatrix;
 	double phase;
 };
 
 struct Visualizer_Pkg
 {
-	char* filename;
+	char *filename;
 	int total_packets;
 	int total_frames;
-	int frame_size;
 	int bitsize;
 
   	SDL_AudioDeviceID device;
-	SDL_AudioSpec* wavSpec_ptr;
-    struct AudioData* AudioData_ptr;
-	struct FFTW_Results* FFTW_Results_ptr;
-	struct FFTWop* fftw_ptr;
+	SDL_AudioSpec *wavSpec_ptr;
+	struct AudioData *AudioData_ptr;
+	struct FFTW_Results *FFTW_Results_ptr;
+	struct FFTWop *fftw_ptr;
 
-	
 	double (*GetAudioSample)(Uint8*, SDL_AudioFormat);
 	void (*setupDFT)(Visualizer_Pkg_ptr, Uint8*, int );
 };
 
-
-
 #endif //AUDIOINFORMATION_H
+
