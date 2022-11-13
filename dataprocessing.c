@@ -19,7 +19,7 @@ void setupDFTForSound(Visualizer_Pkg_ptr vis_pkg_ptr, uint8_t *buffer, int bytes
 	for(c=0; c<channels; ++c)
 	{
 		fftwop[c].p=fftw_plan_dft_1d(frames, fftwop[c].in, fftwop[c].out, FFTW_FORWARD, FFTW_MEASURE);
-    }
+	}
 
 	while(count<frames)
 	{
@@ -27,10 +27,10 @@ void setupDFTForSound(Visualizer_Pkg_ptr vis_pkg_ptr, uint8_t *buffer, int bytes
 		{
 			fftwop[c].in[count][real]=vis_pkg_ptr->GetAudioSample(buffer, fmt);
 			fftwop[c].in[count][imag]=0.0;
-            buffer+=bytewidth;
-        }
-        count++;
-    }
+			buffer+=bytewidth;
+		}
+		count++;
+	}
 }
 
 int getFileSize(FILE *inFile)
